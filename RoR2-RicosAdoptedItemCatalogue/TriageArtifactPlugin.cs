@@ -10,12 +10,12 @@ namespace RAIC
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [R2APISubmoduleDependency(nameof(LanguageAPI), nameof(ArtifactAPI), nameof(ItemAPI), nameof(RecalculateStatsAPI), nameof(ArtifactCodeAPI))]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    public class AdoptedItemsPlugin : BaseUnityPlugin
+    public class TriageArtifactPlugin : BaseUnityPlugin
     {
         public const string ModVer = "0.0.1";
-        public const string ModName = "AdoptedItems";
-        public const string ModGuid = "com.RicoValdezio.AdoptedItems";
-        public static AdoptedItemsPlugin instance;
+        public const string ModName = "TriageArtifact";
+        public const string ModGuid = "com.RicoValdezio.TriageArtifact";
+        public static TriageArtifactPlugin instance;
         public static ManualLogSource logSource;
         public static AssetBundle assetBundle;
 
