@@ -1,0 +1,38 @@
+﻿Goal: A shared health bar that all players redirect healing/damage to - if it dies, all players die
+
+What counts as health?
+- Player Health is obviously counted towards Team Health
+- Player Shield has two options
+  - it's counted just like Health is and can be healed like Health (S:H)
+  - it's left on the player and takes damage before the Team Health (S:A)
+- Player Barrier also has a few options
+  - it's left on the player and takes damage before the Team Health (B:A)
+  - it's treated like Healing is, and is used to heal the Team Health (B:H)
+
+How is damage calculated in each above pattern? Assume 1000 damage dealt to player with 1000 Health, 500 Shield, and 100 Barrier
+- S:H B:H - The Team Health takes 1000 damage, the Player Shield and Barrier do nothing to reduce this
+- S:H B:A - The Team Health takes 900 damage, the Player Barrier collapses and the Shield does nothing (player can recharge Barrier)
+- S:A B:H - The Team Health takes 500 damage, the Player Shield collapses and the Barrier does nothing (player can recharge Shield)
+- S:A B:A - The Team Health takes 400 damage, the Player Shield and Barrier both collapse (player can recharge both)
+
+Knowing that S:A B:A is the best option, how should each player handle Aegis Barrier?
+- Option 1 is that it can recharge immediately since the player is still at full health
+  - This would intercept all Healing from the player until they reach full Barrier (punishes the Team)
+- Option 2 is that the team should wait until the Team Health is full to generate
+  - This would prevent any Barrier recharge until the Team Health is full (punishes the Player)
+- Option 3 is that the heal is split between the Team and player
+  - Half(?) would go to the Player Barrier, the rest goes to Team Health
+  - If either fills first, full send to the other (balanced, but probably doesn't feel great)
+
+What about minions?
+- Ghosts and Polyps take DoT, which would chew away at the Team Health unchecked
+  - Seeing as both of these are already fairly poor items, maybe don't include them
+- Purchased Turrets/Drones have high Regen values and suprising Health bulk early on
+  - Hesitant to include these because of the Regen values
+- Beetle Guards are fairly stable growth with a bit of Health bulk
+  - ...but they're pretty dumb and are prone to take big hits or jump off cliffs (WeakAssKnees scales forever btw)
+- Engi Turrets scale off the Engineer that placed them
+  - They use the Suicide when redeployed, so there isn't a damage value for that (nor should there be)
+  - Only because no other minions are include, also exclude these probably
+
+What about status changes? Vultures/Dios/Tonic/Glass? What about levelling?
