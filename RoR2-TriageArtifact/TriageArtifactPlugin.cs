@@ -4,7 +4,7 @@ using R2API;
 using R2API.Utils;
 using UnityEngine;
 
-namespace RAIC
+namespace TriageArtifact
 {
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]

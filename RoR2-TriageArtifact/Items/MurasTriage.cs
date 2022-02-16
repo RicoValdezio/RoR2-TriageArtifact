@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RAIC.Items
+namespace TriageArtifact.Items
 {
     public class MurasTriage
     {
